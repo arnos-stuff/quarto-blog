@@ -18,9 +18,8 @@ image: "julialogo.png"
 
 The setup : libs & data
 
-```{julia}
-using Pkg
-Pkg.activate(".")
+```{julia message=FALSE, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+#| context: setup
 using DataFrames, DataFramesMeta, BrowseTables, Parquet
 using Distributions, StatsPlots, Statistics
 using Plots
@@ -31,6 +30,7 @@ using LaTeXStrings
 Importing the data
 
 ```{julia}
+#| context: data
 df = DataFrame(
     read_parquet("C:\\Users\\arnov\\Documents\\code\\notebooks\\quarto\\econ\\data\\data-clean-full-latest.parquet"))
 
@@ -54,6 +54,7 @@ We want to find a decent model for $F$. We'll try a few methods first:
 Let's first look at the data: the true model actually depends on $\langle t, k, p \rangle$ (time, country and percentile), but we'll ignore that for now.
 
 ```{julia}
+#| context: data
 dfg = groupby(df, :rel_income)
 
 dfr = hcat(
@@ -100,7 +101,7 @@ latexstring(raw"""
 
 This means that on aggregate we have this mental picture of the typical quartile distribution:
 
-```{julia}
+```{julia, fig.cap="The mental model", fig.align='center', warning=FALSE}
 
 mu = round(mean(df.perc), digits=2)
 
@@ -111,7 +112,7 @@ plot(
         mu,
         sigma
         ),
-        fill=(0, .5, :pink),
+        fill=(0, .2, :pink),
         linecolor=:purple,
         label="""Normal plot \\mu = $(mu), \\sigma = $(sigma)""",
         size=(800, 600),
@@ -121,14 +122,14 @@ plot(
 
 But that aggregate picture is not very useful. Let's look at the distribution by relative income.
 
-```{julia}
+```{julia, fig.cap="A more accurate picture", fig.align='center', warning=FALSE}
 function linspace(start::Any, stop::Any, n::Int)
     step = (stop - start) / (n - 1)
     return start:step:stop
 end
 
-function diracPlot(x::Any, y::Any, label::Any = "")
-    plot!([x,0],[x,y],arrow=true,linewidth=2, label=label)
+function diracPlot(x, y, label = "")
+    plot!([x,x],[0,y],arrow=true,linewidth=2, label=label)
 end
 
 bins = linspace(minimum(df.rel_income), maximum(df.rel_income), 5)
@@ -159,8 +160,8 @@ for i in 1:size(dfgbin, 1)
     sstd = dfgbin[i, :perc_std]
     smean = dfgbin[i, :perc_mean]
     bin_rel_inc = bins[i]
-    if isnan(sstd)
-        diracPlot(smean, 2, "Group $(i) \\mu = $(round(smean, digits=2))")
+    if isnan(sstd) || sstd <= 1e-6
+        diracPlot(smean, 2, "Group $(i) \\mu = $(round(smean, digits=2)) , \\sigma = 0")
         sstd = 0
     else
         vline!(
@@ -169,9 +170,7 @@ for i in 1:size(dfgbin, 1)
         linewidth=0.5,
         ylims=(0, 2.5),
         )
-        
-    end
-    plot!(
+        plot!(
         Normal(
             smean,
             sstd
@@ -181,6 +180,8 @@ for i in 1:size(dfgbin, 1)
             size=(800, 600),
             background_color="#7711d708"
     )
+    end
+    
 end
 
 @show p
@@ -192,7 +193,7 @@ This is just us toying around with the data though, let us now plot the CDF func
 
 Those confidence bounds are not very realistic because we treat a variable that's bounded within $(0,1)$ as if it were normally distributed. But it's a good enough approximation for our purposes.
 
-```{julia}
+```{julia, fig.cap="The percentiles", fig.align='center', warning=FALSE}
 _dfr = dropmissing(sort(dfr, :rel_income))
 
 plot(
@@ -224,7 +225,7 @@ Due to marginalisation across two dimensions, we have a 1D distribution, which w
 
 But we can clearly see the uncertainty around that curve. Let's see the quantiles now 🧐
 
-```{julia}
+```{julia, fig.cap="Observed Quantiles", fig.align='center', warning=FALSE}
 plot(
     _dfr.rel_income,
     [_dfr.perc_05, _dfr.perc_50, _dfr.perc_95],

@@ -1,12 +1,85 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
+title: "Welcome to my data notebooks blog !"
+author: "Arno V"
 date: "2023-02-01"
-categories: [news]
+categories: [launch, blog, hello, code, data]
+image: "picrew-transparent.png"
 ---
 
-This is the first post in a Quarto blog. Welcome!
+# Introduction 📰
 
-![](thumbnail.jpg)
+This is the first post in my [Quarto][1] blog. Welcome ! 👋👋  
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+This is "me" in a [Picrew][2] avatar below 👇
+
+<p align="center" style="max-width: 100vw ;">
+  <img src="picrew-transparent.png" width="500"/>
+</p>
+
+The goal of this small blog is to share my thoughts and ideas about data science, coding, and other things I find interesting. I will also share some of my projects and code snippets. I hope you will enjoy it 🤗.
+
+I use [VSCode][3] and [Jupyter][4] to learn [Julia][5] bit by bit, and I try to do so using some real world data 😎
+
+<p align="center" >
+  <img src="julialogo.png" width="400"/>
+</p>
+
+However sometimes I might still use ol' trusty [Python 🐍][6] from time to time (but not R 😅).
+
+
+<p align="center" >
+  <img src="pythonlogo.png" width="300"/>
+</p>
+
+## Previews 📸
+
+Here's a Julia plot of the earth's GDP growth rate from 1960 to 2019. The data is from the [World Bank][7].
+
+```{julia, echo=FALSE, fig.cap="GDP growth rate from 1960 to 2019", fig.align='center', warning=FALSE}
+using Plots
+using DataFrames
+using CSV
+using HTTP
+using ZipFile # for unzipping the file
+
+# download the data
+url = "https://api.worldbank.org/v2/en/indicator/NY.GDP.MKTP.KD?downloadformat=csv";
+
+download(url, "gdp_growth.zip");
+
+# unzip the file
+r = ZipFile.Reader("gdp_growth.zip");
+
+for f in r.files
+    if endswith(f.name, ".csv") && !(startswith(f.name, "Metadata"))
+        growthfn = f.name
+        write(open("growth.csv", "w+"),read(f, String));
+    end
+end
+
+
+
+df = DataFrame(CSV.File("growth.csv", header=0, normalizenames=true, silencewarnings=true));
+
+
+world = df[df[:,1] .== "World", :];
+
+gdp = select(world, Not(1:5))
+vecGDP = permutedims(gdp)[:,1]
+dataYears = length(vecGDP)
+
+years = collect((2021 - dataYears +1):2021);
+
+plot(years, vecGDP, label="Total GDP (in 2015 \$)", xlabel="Year", ylabel="Total GDP (in 2015 \$)", legend=:topleft, title="Total GDP (in 2015 \$) from 1968 to 2021", background_color="#7711d708")
+```
+
+Cool right ? 😎
+
+
+[6]: https://www.python.org/
+[1]: https://quarto.org
+[2]: https://picrew.me/
+[3]: https://code.visualstudio.com/
+[4]: https://jupyter.org/
+[5]: https://julialang.org/
+[7]: https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=1W

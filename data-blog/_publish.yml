@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 089cf97a-3747-45c0-b3c1-acd86f5471c3
+      url: 'https://notebooks.arnov.dev'
