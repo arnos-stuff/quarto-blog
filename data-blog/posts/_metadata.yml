@@ -1,0 +1,42 @@
+# options specified here will apply to all posts in this folder
+
+# freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: true
+
+# Enable banner style title blocks
+title-block-banner: true
+
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap
+    code-block-background: false
+    code-block-line-numbers: true
+    code-block-line-numbers-background: false
+    code-block-width: 100%
+
+
+# Set theme elements
+highlight-style: custom.theme
+
+figure:
+  caption:
+    background: "#7d05ac22"
+    border: "1px solid #730dd2e7"
+    border-radius: 4px
+    padding: 8px
+    margin: 8px 0
+    font-size: 0.9em
+    font-style: normal
+    font-family: "CMU Serif"
+    font-weight: 400
+    color: "#e673cf"
+    text-align: center
+    width: 100%
+    max-width: 100%
+    display: block
+    clear: both
+    float: none

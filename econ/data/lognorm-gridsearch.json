@@ -1,0 +1,352 @@
+{
+  "0": {
+    "guess": [
+      0.01,
+      25.0
+    ],
+    "result": "Failed to converge"
+  },
+  "1": {
+    "guess": [
+      1.05125,
+      0.01
+    ],
+    "result": "Failed to converge"
+  },
+  "2": {
+    "guess": [
+      2.0925,
+      1.05125
+    ],
+    "result": "Failed to converge"
+  },
+  "3": {
+    "guess": [
+      3.13375,
+      2.0925
+    ],
+    "result": "Failed to converge"
+  },
+  "4": {
+    "guess": [
+      4.175,
+      3.13375
+    ],
+    "result": "Failed to converge"
+  },
+  "5": {
+    "guess": [
+      5.21625,
+      4.175
+    ],
+    "result": "Failed to converge"
+  },
+  "6": {
+    "guess": [
+      6.2575,
+      5.21625
+    ],
+    "result": "Failed to converge"
+  },
+  "7": {
+    "guess": [
+      7.29875,
+      6.2575
+    ],
+    "result": "Failed to converge"
+  },
+  "8": {
+    "guess": [
+      8.34,
+      7.29875
+    ],
+    "result": "Failed to converge"
+  },
+  "9": {
+    "guess": [
+      9.38125,
+      8.34
+    ],
+    "result": "Failed to converge"
+  },
+  "10": {
+    "guess": [
+      10.4225,
+      9.38125
+    ],
+    "result": "Failed to converge"
+  },
+  "11": {
+    "guess": [
+      11.46375,
+      10.4225
+    ],
+    "result": "Failed to converge"
+  },
+  "12": {
+    "guess": [
+      12.505,
+      11.46375
+    ],
+    "result": "Failed to converge"
+  },
+  "13": {
+    "guess": [
+      13.54625,
+      12.505
+    ],
+    "result": "Failed to converge"
+  },
+  "14": {
+    "guess": [
+      14.5875,
+      13.54625
+    ],
+    "result": "Failed to converge"
+  },
+  "15": {
+    "guess": [
+      15.62875,
+      14.5875
+    ],
+    "result": "Failed to converge"
+  },
+  "16": {
+    "guess": [
+      16.67,
+      15.62875
+    ],
+    "result": "Failed to converge"
+  },
+  "17": {
+    "guess": [
+      17.711250000000003,
+      16.67
+    ],
+    "result": "Failed to converge"
+  },
+  "18": {
+    "guess": [
+      18.7525,
+      17.711250000000003
+    ],
+    "result": "Failed to converge"
+  },
+  "19": {
+    "guess": [
+      19.793750000000003,
+      18.7525
+    ],
+    "result": "Failed to converge"
+  },
+  "20": {
+    "guess": [
+      20.835,
+      19.793750000000003
+    ],
+    "result": "Failed to converge"
+  },
+  "21": {
+    "guess": [
+      21.876250000000002,
+      20.835
+    ],
+    "result": "Failed to converge"
+  },
+  "22": {
+    "guess": [
+      22.9175,
+      21.876250000000002
+    ],
+    "result": "Failed to converge"
+  },
+  "23": {
+    "guess": [
+      23.958750000000002,
+      22.9175
+    ],
+    "result": "Failed to converge"
+  },
+  "24": {
+    "guess": [
+      25.0,
+      23.958750000000002
+    ],
+    "result": "Failed to converge"
+  },
+  "25": {
+    "guess": [
+      -20.0,
+      20.0
+    ],
+    "result": "Failed to converge"
+  },
+  "26": {
+    "guess": [
+      -18.333333333333332,
+      -20.0
+    ],
+    "result": "Failed to converge"
+  },
+  "27": {
+    "guess": [
+      -16.666666666666668,
+      -18.333333333333332
+    ],
+    "result": "Failed to converge"
+  },
+  "28": {
+    "guess": [
+      -15.0,
+      -16.666666666666668
+    ],
+    "result": "Failed to converge"
+  },
+  "29": {
+    "guess": [
+      -13.333333333333332,
+      -15.0
+    ],
+    "result": "Failed to converge"
+  },
+  "30": {
+    "guess": [
+      -11.666666666666666,
+      -13.333333333333332
+    ],
+    "result": "Failed to converge"
+  },
+  "31": {
+    "guess": [
+      -10.0,
+      -11.666666666666666
+    ],
+    "result": "Failed to converge"
+  },
+  "32": {
+    "guess": [
+      -8.333333333333332,
+      -10.0
+    ],
+    "result": "Failed to converge"
+  },
+  "33": {
+    "guess": [
+      -6.666666666666666,
+      -8.333333333333332
+    ],
+    "result": "Failed to converge"
+  },
+  "34": {
+    "guess": [
+      -5.0,
+      -6.666666666666666
+    ],
+    "result": "Failed to converge"
+  },
+  "35": {
+    "guess": [
+      -3.333333333333332,
+      -5.0
+    ],
+    "result": "Failed to converge"
+  },
+  "36": {
+    "guess": [
+      -1.6666666666666643,
+      -3.333333333333332
+    ],
+    "result": "Failed to converge"
+  },
+  "37": {
+    "guess": [
+      0.0,
+      -1.6666666666666643
+    ],
+    "result": "Failed to converge"
+  },
+  "38": {
+    "guess": [
+      1.6666666666666679,
+      0.0
+    ],
+    "result": "Failed to converge"
+  },
+  "39": {
+    "guess": [
+      3.3333333333333357,
+      1.6666666666666679
+    ],
+    "result": "Failed to converge"
+  },
+  "40": {
+    "guess": [
+      5.0,
+      3.3333333333333357
+    ],
+    "result": "Failed to converge"
+  },
+  "41": {
+    "guess": [
+      6.666666666666668,
+      5.0
+    ],
+    "result": "Failed to converge"
+  },
+  "42": {
+    "guess": [
+      8.333333333333336,
+      6.666666666666668
+    ],
+    "result": "Failed to converge"
+  },
+  "43": {
+    "guess": [
+      10.0,
+      8.333333333333336
+    ],
+    "result": "Failed to converge"
+  },
+  "44": {
+    "guess": [
+      11.666666666666668,
+      10.0
+    ],
+    "result": "Failed to converge"
+  },
+  "45": {
+    "guess": [
+      13.333333333333336,
+      11.666666666666668
+    ],
+    "result": "Failed to converge"
+  },
+  "46": {
+    "guess": [
+      15.0,
+      13.333333333333336
+    ],
+    "result": "Failed to converge"
+  },
+  "47": {
+    "guess": [
+      16.66666666666667,
+      15.0
+    ],
+    "result": "Failed to converge"
+  },
+  "48": {
+    "guess": [
+      18.333333333333336,
+      16.66666666666667
+    ],
+    "result": "Failed to converge"
+  },
+  "49": {
+    "guess": [
+      20.0,
+      18.333333333333336
+    ],
+    "result": "Failed to converge"
+  }
+}

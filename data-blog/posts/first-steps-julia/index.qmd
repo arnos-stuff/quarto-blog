@@ -1,0 +1,244 @@
+---
+title: "First attempt at modelling using Julia"
+author: "Arno V"
+date: "2023-02-04"
+categories: [julia, code, analysis, economics]
+image: "julialogo.png"
+---
+
+
+
+# A first attempt at modelling using Julia
+
+<p align="center">
+  <img src="https://julialang.org/assets/infra/logo.svg" />
+</p>
+
+✨ Economic data 📊 , Julia 🤗 and Jupyter🪐
+
+The setup : libs & data
+
+```{julia}
+using Pkg
+Pkg.activate(".")
+using DataFrames, DataFramesMeta, BrowseTables, Parquet
+using Distributions, StatsPlots, Statistics
+using Plots
+using LaTeXStrings
+```
+<br>
+
+Importing the data
+
+```{julia}
+df = DataFrame(
+    read_parquet("C:\\Users\\arnov\\Documents\\code\\notebooks\\quarto\\econ\\data\\data-clean-full-latest.parquet"))
+
+first(df, 10)
+```
+<br>
+
+
+# What we aim to do
+
+Here we have two values, $Q(p)$ and $p$, where $p$ is a percentile and $Q$ the Quantile function.  
+
+You could conversely see it as $q$ and $F(q)$, where $q$ is a quantile and $F$ the CDF.
+
+We want to find a decent model for $F$. We'll try a few methods first:
+
+* The classic Q-Q plot eyeballing
+* The Kolmogorov-Smirnov test (based on the $L_\infty$ norm $||F-\hat{F}||_\infty$)
+* The so-called Anderson-Darling test (based on the $L_2$ norm $||F-\hat{F}||_2$)
+
+Let's first look at the data: the true model actually depends on $\langle t, k, p \rangle$ (time, country and percentile), but we'll ignore that for now.
+
+```{julia}
+dfg = groupby(df, :rel_income)
+
+dfr = hcat(
+    combine(dfg,
+        :perc => ((p) -> quantile(p, 0.025)) => :perc_025,
+        :perc => ((p) -> quantile(p, 0.05)) => :perc_05,
+        :perc => ((p) -> quantile(p, 0.25)) => :perc_25,
+        :perc => ((p) -> quantile(p, 0.5)) => :perc_50,
+        :perc => ((p) -> quantile(p, 0.75)) => :perc_75,
+        :perc => ((p) -> quantile(p, 0.95)) => :perc_95,
+        :perc => ((p) -> quantile(p, 0.975)) => :perc_975,
+        ),
+    combine(dfg,
+        :perc => mean => :perc_mean,
+        :perc => std => :perc_std,
+        ),
+        makeunique=true
+)
+```
+<br>
+
+
+### Confidence intervals
+
+Let's estimate upper and lower confidence bounds for the CDF function $F$.
+
+```{julia}
+dfr = hcat(
+    dfr,
+    combine(dfr,
+        [:perc_mean, :perc_std] => ByRow.((m,s) -> m + 2 * s) => :perc_upper_std,
+        [:perc_mean, :perc_std] => ByRow.((m,s) -> m - 2 * s) => :perc_lower_std
+        ),
+    makeunique=true
+)
+dfr = select(dfr, Not(:rel_income_1))
+
+
+latexstring(raw"""
+\mu(P) = """ * "$(round(mean(df.perc), digits=2))" * raw"""\quad \text{and} \quad
+\sigma(P) = """ * "$(round(std(df.perc), digits=2))" )
+```
+<br>
+
+This means that on aggregate we have this mental picture of the typical quartile distribution:
+
+```{julia}
+
+mu = round(mean(df.perc), digits=2)
+
+sigma = round(std(df.perc), digits=2)
+
+plot(
+    Normal(
+        mu,
+        sigma
+        ),
+        fill=(0, .5, :pink),
+        linecolor=:purple,
+        label="""Normal plot \\mu = $(mu), \\sigma = $(sigma)""",
+        size=(800, 600),
+        background_color="#7711d708"
+)
+```
+
+But that aggregate picture is not very useful. Let's look at the distribution by relative income.
+
+```{julia}
+function linspace(start::Any, stop::Any, n::Int)
+    step = (stop - start) / (n - 1)
+    return start:step:stop
+end
+
+function diracPlot(x::Any, y::Any, label::Any = "")
+    plot!([x,0],[x,y],arrow=true,linewidth=2, label=label)
+end
+
+bins = linspace(minimum(df.rel_income), maximum(df.rel_income), 5)
+
+dfbin = combine(df,
+    :rel_income => ByRow.((x) -> bins[findfirst(bins .>= x)]) => :bin_rel_income,
+    :perc => identity => :perc
+    )
+
+dfgbin = combine(
+    groupby(dfbin, :bin_rel_income),
+    :perc => mean => :perc_mean,
+    :perc => std => :perc_std
+    )
+
+p = plot(
+    vline(
+        [mean(df.perc)],
+        label="Total Mean",
+        linestyle=:dash,
+        linewidth=2,
+        ylims=(0, 2.5),
+        legend=:outertopright,
+        background_color="#7711d708"
+        ),
+)
+for i in 1:size(dfgbin, 1)
+    sstd = dfgbin[i, :perc_std]
+    smean = dfgbin[i, :perc_mean]
+    bin_rel_inc = bins[i]
+    if isnan(sstd)
+        diracPlot(smean, 2, "Group $(i) \\mu = $(round(smean, digits=2))")
+        sstd = 0
+    else
+        vline!(
+        [smean],
+        label="",
+        linewidth=0.5,
+        ylims=(0, 2.5),
+        )
+        
+    end
+    plot!(
+        Normal(
+            smean,
+            sstd
+            ),
+            fill=(0, .2),
+            label="Group $(i) Normal \\mu = $(round(smean, digits=2)), \\sigma = $(round(sstd, digits=2))",
+            size=(800, 600),
+            background_color="#7711d708"
+    )
+end
+
+@show p
+```
+
+<br>
+
+This is just us toying around with the data though, let us now plot the CDF function $F$ and the confidence bounds.  
+
+Those confidence bounds are not very realistic because we treat a variable that's bounded within $(0,1)$ as if it were normally distributed. But it's a good enough approximation for our purposes.
+
+```{julia}
+_dfr = dropmissing(sort(dfr, :rel_income))
+
+plot(
+    _dfr.rel_income,
+    _dfr.perc_mean,
+    ribbon=(_dfr.perc_lower_std, _dfr.perc_upper_std),
+    fillalpha=0.2,
+    fillcolor=:blue,
+    label="",
+    xlabel="Relative income",
+    ylabel=L"Share of population (cdf $\hat{F}$)",
+    title="Share of population by relative income",
+    legend=:bottomright,
+    size=(800, 600),
+    ylims=(0, 1.6),
+    xlims=(0, 28),
+    background_color="#7711d708"
+    )
+plot!(
+    _dfr.rel_income,
+    [_dfr.perc_lower_std, _dfr.perc_upper_std],
+    xlims=(0, 28),
+)
+```
+<br>
+
+
+Due to marginalisation across two dimensions, we have a 1D distribution, which we can plot as a curve.
+
+But we can clearly see the uncertainty around that curve. Let's see the quantiles now 🧐
+
+```{julia}
+plot(
+    _dfr.rel_income,
+    [_dfr.perc_05, _dfr.perc_50, _dfr.perc_95],
+    ribbon=(_dfr.perc_lower_std, _dfr.perc_upper_std),
+    fillalpha=0.2,
+    fillcolor=:blue,
+    label="",
+    xlabel="Relative income",
+    ylabel=L"Share of population (cdf $\hat{F}$)",
+    title="Share of population by relative income",
+    legend=:bottomright,
+    size=(800, 600),
+    ylims=(0, 1.1),
+    xlims=(0, 28),
+    background_color="#7711d708"
+    )
+```
