@@ -1,0 +1,19 @@
+---
+title: "Hierachical modelling in Julia (basics) 🧑‍🏫"
+author: "Arno V"
+date: "2023-02-05"
+categories: [julia, code, analysis, economics, hierachical-models]
+image: "DAG-Hierarchical-Model"
+---
+
+# Let's try a smarter approach 🤓
+
+In the previous post, we have seen how to use Julia to estimate a simple univariate model using MLE fitting. In this post, we will see how to use Julia to estimate a hierachical model.
+
+## What is a hierachical model? 🤔
+
+You'll often see diagrams like these thrown around in the literature:
+
+<p align="center">
+  <img src="./tikzbayes.svg" width="800"/>
+</p>

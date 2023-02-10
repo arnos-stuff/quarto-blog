@@ -1,0 +1,11 @@
+{
+  "hash": "6cd36b40028b8952daacb3cc61113b68",
+  "result": {
+    "markdown": "---\ntitle: \"Hierachical modelling in Julia (basics) 🧑‍🏫\"\nauthor: \"Arno V\"\ndate: \"2023-02-05\"\ncategories: [julia, code, analysis, economics, hierachical-models]\nimage: \"DAG-Hierarchical-Model\"\n---\n\n# Let's try a smarter approach 🤓\n\nIn the previous post, we have seen how to use Julia to estimate a simple univariate model using MLE fitting. In this post, we will see how to use Julia to estimate a hierachical model.\n\n## What is a hierachical model? 🤔\n\nYou'll often see diagrams like these thrown around in the literature:\n\n::: {.cell pdf-engine='pdflatex' execution_count=1}\n``` {.julia .cell-code}\nusing Markdown\nusing Graphs\nusing LaTeXStrings\nusing GLMakie\nusing GraphMakie\nusing MathTeXEngine\n\ng = DiGraph(10)\nadd_edge!(g, 4, 1)\nadd_edge!(g, 5, 1)\nadd_edge!(g, 6, 2)\nadd_edge!(g, 7, 2)\nadd_edge!(g, 8, 3)\nadd_edge!(g, 9, 3)\nadd_edge!(g, 1, 10)\nadd_edge!(g, 2, 10)\nadd_edge!(g, 3, 10)\n\nnames = [\n    [\"z_$i\" for i in 1:3];\n    [\"\\\\theta_$i\" for i in 1:3];\n    [\"\\\\phi_$i\" for i in 1:3];\n    [\"\\\\vec{x}\"]\n]\n\narrow_shift = [1.0 for i in 1:ne(g)]\nnode_size = [10 for i in 1:nv(g)]\n\nf, ax, p = graphplot(g, nlabels=names, node_size=node_size ; arrow_shift=arrow_shift, curve_distance=-.5, curve_distance_usage=true)\nhidespines!(ax); ax.aspect = DataAspect()\n\nf\n```\n\n::: {.cell-output .cell-output-display execution_count=9}\n![](index_files/figure-html/cell-2-output-1.png){}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

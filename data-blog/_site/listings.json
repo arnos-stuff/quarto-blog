@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/small-toy-example/index.html",
+      "/posts/distribution-fitting/index.html",
       "/posts/first-steps-julia/index.html",
       "/posts/welcome/index.html"
     ]

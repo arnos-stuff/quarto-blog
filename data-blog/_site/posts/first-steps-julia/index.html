@@ -153,12 +153,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arnos-stuff"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/arno_shae"><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -215,10 +215,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="a-first-attempt-at-modelling-using-julia" class="level1">
 <h1>A first attempt at modelling using Julia</h1>
+<p>✨ Economic data 📊 , Julia 🤗 and Jupyter🪐</p>
 <p align="center">
 <img src="https://julialang.org/assets/infra/logo.svg">
 </p>
-<p>✨ Economic data 📊 , Julia 🤗 and Jupyter🪐</p>
 <p>The setup : libs &amp; data</p>
 <div class="cell" data-context="setup" data-execution_count="1">
 <details>
@@ -239,7 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(df, <span class="fl">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="3">
 
 <div><div style="float: left;"><span>10×8 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;"><table class="data-frame table table-sm table-striped" style="margin-bottom: 6px;"><thead><tr class="header"><th class="rowNumber" style="font-weight: bold; text-align: right;">Row</th><th style="text-align: left;">perc</th><th style="text-align: left;">country</th><th style="text-align: left;">year</th><th style="text-align: left;">rel_income</th><th style="text-align: left;">original</th><th style="text-align: left;">code</th><th style="text-align: left;">num</th><th style="text-align: left;">label</th></tr><tr class="subheader headerLastRow"><th class="rowNumber" style="font-weight: bold; text-align: right;"></th><th title="Union{Missing, Float64}" style="text-align: left;">Float64?</th><th title="Union{Missing, String}" style="text-align: left;">String?</th><th title="Union{Missing, Int64}" style="text-align: left;">Int64?</th><th title="Union{Missing, Float64}" style="text-align: left;">Float64?</th><th title="Union{Missing, String}" style="text-align: left;">String?</th><th title="Union{Missing, String}" style="text-align: left;">String?</th><th title="Union{Missing, Int64}" style="text-align: left;">Int64?</th><th title="Union{Missing, String}" style="text-align: left;">String?</th></tr></thead><tbody><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">1</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Albania</td><td style="text-align: right;">2017</td><td style="text-align: right;">2.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">2</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Albania</td><td style="text-align: right;">2018</td><td style="text-align: right;">2.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">3</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Albania</td><td style="text-align: right;">2019</td><td style="text-align: right;">2.3</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">4</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Albania</td><td style="text-align: right;">2020</td><td style="text-align: right;">2.5</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">5</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">1995</td><td style="text-align: right;">3.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">6</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">1996</td><td style="text-align: right;">4.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">7</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">1997</td><td style="text-align: right;">4.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">8</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">1998</td><td style="text-align: right;">4.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">9</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">1999</td><td style="text-align: right;">4.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">10</td><td style="text-align: right;">0.1</td><td style="text-align: left;">Austria</td><td style="text-align: right;">2000</td><td style="text-align: right;">4.0</td><td style="text-align: left;">D1:First decile</td><td style="text-align: left;">D</td><td style="text-align: right;">1</td><td style="text-align: left;">First decile</td></tr></tbody></table></div>
 </div>
@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        makeunique<span class="op">=</span><span class="cn">true</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <div><div style="float: left;"><span>506×11 DataFrame</span></div><div style="float: right;"><span style="font-style: italic;">481 rows omitted</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;"><table class="data-frame table table-sm table-striped" style="margin-bottom: 6px;"><thead><tr class="header"><th class="rowNumber" style="font-weight: bold; text-align: right;">Row</th><th style="text-align: left;">rel_income</th><th style="text-align: left;">perc_025</th><th style="text-align: left;">perc_05</th><th style="text-align: left;">perc_25</th><th style="text-align: left;">perc_50</th><th style="text-align: left;">perc_75</th><th style="text-align: left;">perc_95</th><th style="text-align: left;">perc_975</th><th style="text-align: left;">rel_income_1</th><th style="text-align: left;">perc_mean</th><th style="text-align: left;">perc_std</th></tr><tr class="subheader headerLastRow"><th class="rowNumber" style="font-weight: bold; text-align: right;"></th><th title="Union{Missing, Float64}" style="text-align: left;">Float64?</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th><th title="Union{Missing, Float64}" style="text-align: left;">Float64?</th><th title="Float64" style="text-align: left;">Float64</th><th title="Float64" style="text-align: left;">Float64</th></tr></thead><tbody><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">1</td><td style="text-align: right;">2.0</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.95</td><td style="text-align: right;">0.95</td><td style="text-align: right;">0.97</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.98</td><td style="text-align: right;">2.0</td><td style="text-align: right;">0.887081</td><td style="text-align: right;">0.238359</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">2</td><td style="text-align: right;">2.3</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.44</td><td style="text-align: right;">0.96</td><td style="text-align: right;">0.97</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">2.3</td><td style="text-align: right;">0.925874</td><td style="text-align: right;">0.193118</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">3</td><td style="text-align: right;">2.5</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.97</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">2.5</td><td style="text-align: right;">0.914111</td><td style="text-align: right;">0.228064</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">4</td><td style="text-align: right;">3.0</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">3.0</td><td style="text-align: right;">0.58037</td><td style="text-align: right;">0.442832</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">5</td><td style="text-align: right;">4.0</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">4.0</td><td style="text-align: right;">0.327748</td><td style="text-align: right;">0.36602</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">6</td><td style="text-align: right;">3.5</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.9995</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.5</td><td style="text-align: right;">0.466774</td><td style="text-align: right;">0.434103</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">7</td><td style="text-align: right;">3.6</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.15</td><td style="text-align: right;">0.99</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.6</td><td style="text-align: right;">0.432571</td><td style="text-align: right;">0.42075</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">8</td><td style="text-align: right;">3.8</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.8</td><td style="text-align: right;">0.474231</td><td style="text-align: right;">0.436471</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">9</td><td style="text-align: right;">3.4</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.4</td><td style="text-align: right;">0.564386</td><td style="text-align: right;">0.440106</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">10</td><td style="text-align: right;">3.3</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.994</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.3</td><td style="text-align: right;">0.491507</td><td style="text-align: right;">0.443608</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">11</td><td style="text-align: right;">3.2</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.2</td><td style="text-align: right;">0.603625</td><td style="text-align: right;">0.439773</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">12</td><td style="text-align: right;">3.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.98</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">0.99</td><td style="text-align: right;">3.1</td><td style="text-align: right;">0.661707</td><td style="text-align: right;">0.429311</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">13</td><td style="text-align: right;">3.7</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.1</td><td style="text-align: right;">0.99</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">3.7</td><td style="text-align: right;">0.379474</td><td style="text-align: right;">0.406705</td></tr><tr><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td><td style="text-align: right;">⋮</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">495</td><td style="text-align: right;">39.3</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">39.3</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">496</td><td style="text-align: right;">35.8</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">35.8</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">497</td><td style="text-align: right;">34.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">34.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">498</td><td style="text-align: right;">37.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">37.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">499</td><td style="text-align: right;">37.6</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">37.6</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">500</td><td style="text-align: right;">36.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">36.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">501</td><td style="text-align: right;">33.6</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">33.6</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">502</td><td style="text-align: right;">33.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">33.2</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">503</td><td style="text-align: right;">33.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">33.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">NaN</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">504</td><td style="text-align: right;">34.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">34.1</td><td style="text-align: right;">1.0</td><td style="text-align: right;">NaN</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">505</td><td style="text-align: right;">32.3</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">32.3</td><td style="text-align: right;">1.0</td><td style="text-align: right;">NaN</td></tr><tr><td class="rowNumber" style="font-weight: bold; text-align: right;">506</td><td style="text-align: right;">49.5</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">1.0</td><td style="text-align: right;">49.5</td><td style="text-align: right;">1.0</td><td style="text-align: right;">0.0</td></tr></tbody></table></div>
 </div>
@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">\mu(P) = """</span> <span class="op">*</span> <span class="st">"</span><span class="sc">$</span>(<span class="fu">round</span>(<span class="fu">mean</span>(df.perc), digits<span class="op">=</span><span class="fl">2</span>))<span class="st">"</span> <span class="op">*</span> <span class="st">raw"""\quad \text{and} \quad</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">\sigma(P) = """</span> <span class="op">*</span> <span class="st">"</span><span class="sc">$</span>(<span class="fu">round</span>(<span class="fu">std</span>(df.perc), digits<span class="op">=</span><span class="fl">2</span>))<span class="st">"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="52">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <p><span class="math inline">\(\mu(P) = 0.57\quad \text{and} \quad \sigma(P) = 0.36\)</span></p>
 </div>
 </div>
@@ -331,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="53">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <p><img src="index_files/figure-html/cell-6-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
@@ -345,74 +345,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">diracPlot</span>(x, y, label <span class="op">=</span> <span class="st">""</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"diracPlot"</span>, x, y, <span class="st">"arrow from "</span>, x, <span class="st">","</span>, y<span class="op">/</span><span class="fl">4</span>, <span class="st">" to "</span>, x, <span class="st">","</span>, y<span class="op">/</span><span class="fl">4</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot!</span>([x,x],[<span class="fl">0</span>,y],arrow<span class="op">=</span><span class="cn">true</span>,linewidth<span class="op">=</span><span class="fl">2</span>, label<span class="op">=</span>label)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> <span class="fu">linspace</span>(<span class="fu">minimum</span>(df.rel_income), <span class="fu">maximum</span>(df.rel_income), <span class="fl">5</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>dfbin <span class="op">=</span> <span class="fu">combine</span>(df,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>rel_income <span class="op">=&gt;</span> <span class="fu">ByRow</span>.((x) <span class="op">-&gt;</span> bins[<span class="fu">findfirst</span>(bins <span class="op">.&gt;=</span> x)]) <span class="op">=&gt;</span> <span class="op">:</span>bin_rel_income,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> identity <span class="op">=&gt;</span> <span class="op">:</span>perc</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>dfgbin <span class="op">=</span> <span class="fu">combine</span>(</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">groupby</span>(dfbin, <span class="op">:</span>bin_rel_income),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> mean <span class="op">=&gt;</span> <span class="op">:</span>perc_mean,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> std <span class="op">=&gt;</span> <span class="op">:</span>perc_std</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fu">plot</span>(</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vline</span>(</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        [<span class="fu">mean</span>(df.perc)],</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"Total Mean"</span>,</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        linestyle<span class="op">=:</span>dash,</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">2</span>,</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">2.5</span>),</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        legend<span class="op">=:</span>outertopright,</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(dfgbin, <span class="fl">1</span>)</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    sstd <span class="op">=</span> dfgbin[i, <span class="op">:</span>perc_std]</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    smean <span class="op">=</span> dfgbin[i, <span class="op">:</span>perc_mean]</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    bin_rel_inc <span class="op">=</span> bins[i]</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">isnan</span>(sstd) <span class="op">||</span> sstd <span class="op">&lt;=</span> <span class="fl">1e-6</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="fu">diracPlot</span>(smean, <span class="fl">2</span>, <span class="st">"Group </span><span class="sc">$</span>(i)<span class="st"> </span><span class="sc">\\</span><span class="st">mu = </span><span class="sc">$</span>(<span class="fu">round</span>(smean, digits<span class="op">=</span><span class="fl">2</span>))<span class="st"> , </span><span class="sc">\\</span><span class="st">sigma = 0"</span>)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        sstd <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        <span class="fu">vline!</span>(</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        [smean],</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">""</span>,</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">2.5</span>),</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot!</span>(</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Normal</span>(</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>            smean,</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            sstd</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">.2</span>),</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">"Group </span><span class="sc">$</span>(i)<span class="st"> Normal </span><span class="sc">\\</span><span class="st">mu = </span><span class="sc">$</span>(<span class="fu">round</span>(smean, digits<span class="op">=</span><span class="fl">2</span>))<span class="st">, </span><span class="sc">\\</span><span class="st">sigma = </span><span class="sc">$</span>(<span class="fu">round</span>(sstd, digits<span class="op">=</span><span class="fl">2</span>))<span class="st">"</span>,</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>            size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>            background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="pp">@show</span> p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot!</span>([x,x],[<span class="fl">0</span>,y],arrow<span class="op">=</span><span class="cn">true</span>,linewidth<span class="op">=</span><span class="fl">2</span>, label<span class="op">=</span>label)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> <span class="fu">linspace</span>(<span class="fu">minimum</span>(df.rel_income), <span class="fu">maximum</span>(df.rel_income), <span class="fl">5</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dfbin <span class="op">=</span> <span class="fu">combine</span>(df,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>rel_income <span class="op">=&gt;</span> <span class="fu">ByRow</span>.((x) <span class="op">-&gt;</span> bins[<span class="fu">findfirst</span>(bins <span class="op">.&gt;=</span> x)]) <span class="op">=&gt;</span> <span class="op">:</span>bin_rel_income,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> identity <span class="op">=&gt;</span> <span class="op">:</span>perc</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>dfgbin <span class="op">=</span> <span class="fu">combine</span>(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">groupby</span>(dfbin, <span class="op">:</span>bin_rel_income),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> mean <span class="op">=&gt;</span> <span class="op">:</span>perc_mean,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>perc <span class="op">=&gt;</span> std <span class="op">=&gt;</span> <span class="op">:</span>perc_std</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fu">plot</span>(</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vline</span>(</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        [<span class="fu">mean</span>(df.perc)],</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"Total Mean"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        linestyle<span class="op">=:</span>dash,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">2</span>,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">2.5</span>),</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        legend<span class="op">=:</span>outertopright,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(dfgbin, <span class="fl">1</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    sstd <span class="op">=</span> dfgbin[i, <span class="op">:</span>perc_std]</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    smean <span class="op">=</span> dfgbin[i, <span class="op">:</span>perc_mean]</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    bin_rel_inc <span class="op">=</span> bins[i]</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">isnan</span>(sstd) <span class="op">||</span> sstd <span class="op">&lt;=</span> <span class="fl">1e-6</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">diracPlot</span>(smean, <span class="fl">2</span>, <span class="st">"Group </span><span class="sc">$</span>(i)<span class="st"> </span><span class="sc">\\</span><span class="st">mu = </span><span class="sc">$</span>(<span class="fu">round</span>(smean, digits<span class="op">=</span><span class="fl">2</span>))<span class="st"> , </span><span class="sc">\\</span><span class="st">sigma = 0"</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        sstd <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        <span class="fu">vline!</span>(</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        [smean],</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">""</span>,</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">2.5</span>),</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot!</span>(</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Normal</span>(</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>            smean,</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>            sstd</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">.2</span>),</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">"Group </span><span class="sc">$</span>(i)<span class="st"> Normal </span><span class="sc">\\</span><span class="st">mu = </span><span class="sc">$</span>(<span class="fu">round</span>(smean, digits<span class="op">=</span><span class="fl">2</span>))<span class="st">, </span><span class="sc">\\</span><span class="st">sigma = </span><span class="sc">$</span>(<span class="fu">round</span>(sstd, digits<span class="op">=</span><span class="fl">2</span>))<span class="st">"</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>            size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>            background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="pp">@show</span> p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>diracPlot0.012arrow from 0.01,0.5 to 0.01,0.5</code></pre>
+<pre><code>p = Plot{Plots.GRBackend() n=9}</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-diracPlot1.02arrow from 1.0,0.5 to 1.0,0.5
-p = Plot{Plots.GRBackend() n=9}</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="54">
-<p><img src="index_files/figure-html/cell-7-output-3.svg" class="img-fluid"></p>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<p><img src="index_files/figure-html/cell-7-output-2.svg" class="img-fluid"></p>
 </div>
 </div>
 <p><br></p>
@@ -421,31 +415,31 @@ p = Plot{Plots.GRBackend() n=9}</code></pre>
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>_dfr <span class="op">=</span> <span class="fu">dropmissing</span>(<span class="fu">sort</span>(dfr, <span class="op">:</span>rel_income))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    _dfr.perc_mean,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    ribbon<span class="op">=</span>(_dfr.perc_lower_std, _dfr.perc_upper_std),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    fillalpha<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    fillcolor<span class="op">=:</span>blue,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">""</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Relative income"</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span>L<span class="st">"Share of population (cdf </span><span class="sc">$</span><span class="st">\</span>hat<span class="st">{F}</span><span class="sc">$</span><span class="st">)",</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="st">    </span>title<span class="st">="</span>Share of population by relative income<span class="st">",</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=:</span>bottomright,</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">1.6</span>),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    [_dfr.perc_lower_std, _dfr.perc_upper_std],</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>_dfr <span class="op">=</span> <span class="fu">dropmissing</span>(<span class="fu">sort</span>(dfr, <span class="op">:</span>rel_income))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    _dfr.perc_mean,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    ribbon<span class="op">=</span>(_dfr.perc_lower_std, _dfr.perc_upper_std),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    fillalpha<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    fillcolor<span class="op">=:</span>blue,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">""</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Relative income"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span>L<span class="st">"Share of population (cdf </span><span class="sc">$</span><span class="st">\</span>hat<span class="st">{F}</span><span class="sc">$</span><span class="st">)",</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">    </span>title<span class="st">="</span>Share of population by relative income<span class="st">",</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=:</span>bottomright,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">1.6</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    [_dfr.perc_lower_std, _dfr.perc_upper_std],</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <p><img src="index_files/figure-html/cell-8-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
@@ -455,24 +449,24 @@ p = Plot{Plots.GRBackend() n=9}</code></pre>
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    [_dfr.perc_05, _dfr.perc_50, _dfr.perc_95],</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    ribbon<span class="op">=</span>(_dfr.perc_lower_std, _dfr.perc_upper_std),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    fillalpha<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    fillcolor<span class="op">=:</span>blue,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">""</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Relative income"</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span>L<span class="st">"Share of population (cdf </span><span class="sc">$</span><span class="st">\</span>hat<span class="st">{F}</span><span class="sc">$</span><span class="st">)",</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="st">    </span>title<span class="st">="</span>Share of population by relative income<span class="st">",</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=:</span>bottomright,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">1.1</span>),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    _dfr.rel_income,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    [_dfr.perc_05, _dfr.perc_50, _dfr.perc_95],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    ribbon<span class="op">=</span>(_dfr.perc_lower_std, _dfr.perc_upper_std),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    fillalpha<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    fillcolor<span class="op">=:</span>blue,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">""</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"Relative income"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span>L<span class="st">"Share of population (cdf </span><span class="sc">$</span><span class="st">\</span>hat<span class="st">{F}</span><span class="sc">$</span><span class="st">)",</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">    </span>title<span class="st">="</span>Share of population by relative income<span class="st">",</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=:</span>bottomright,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">600</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ylims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">1.1</span>),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    xlims<span class="op">=</span>(<span class="fl">0</span>, <span class="fl">28</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">"#7711d708"</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <p><img src="index_files/figure-html/cell-9-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
@@ -676,15 +670,13 @@ categories: [julia, code, analysis, economics]
 image: "julialogo.png"
 ---
 
-
-
 # A first attempt at modelling using Julia
+
+✨ Economic data 📊 , Julia 🤗 and Jupyter🪐
 
 &lt;p align="center"&gt;
   &lt;img src="https://julialang.org/assets/infra/logo.svg" /&gt;
 &lt;/p&gt;
-
-✨ Economic data 📊 , Julia 🤗 and Jupyter🪐
 
 The setup : libs &amp; data
 

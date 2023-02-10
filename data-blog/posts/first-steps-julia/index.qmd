@@ -6,15 +6,13 @@ categories: [julia, code, analysis, economics]
 image: "julialogo.png"
 ---
 
-
-
 # A first attempt at modelling using Julia
+
+✨ Economic data 📊 , Julia 🤗 and Jupyter🪐
 
 <p align="center">
   <img src="https://julialang.org/assets/infra/logo.svg" />
 </p>
-
-✨ Economic data 📊 , Julia 🤗 and Jupyter🪐
 
 The setup : libs & data
 

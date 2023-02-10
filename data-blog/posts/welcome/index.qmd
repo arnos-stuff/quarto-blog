@@ -12,8 +12,8 @@ This is the first post in my [Quarto][1] blog. Welcome ! 👋👋
 
 This is "me" in a [Picrew][2] avatar below 👇
 
-<p align="center" style="max-width: 100vw ;">
-  <img src="picrew-transparent.png" width="500"/>
+<p align="center">
+  <img src="picrew-transparent.png" width="800"/>
 </p>
 
 The goal of this small blog is to share my thoughts and ideas about data science, coding, and other things I find interesting. I will also share some of my projects and code snippets. I hope you will enjoy it 🤗.

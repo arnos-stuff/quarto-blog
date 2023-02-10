@@ -1,0 +1,153 @@
+\documentclass[
+  tikz,
+  class=scrartcl, % underlying class which is loaded by standalone
+  headinclude,
+  fontsize=12pt % options used by typearea
+]{standalone}
+
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[total={20cm, 20cm}]{geometry}
+\usepackage{layouts}
+
+\storeareas\standalonelayout% save the standalone layout
+\recalctypearea% recalculate the typearea layout
+\edef\savedtextheight{0.95\dimexpr\the\textheight\relax}% save the text height of the typearea layout but remove 5%
+\edef\savedtextwidth{0.95\dimexpr\the\textwidth\relax}% save the text height of the typearea layout but remove 5%
+\edef\middlepagewidth{0.475\dimexpr\the\textwidth\relax}% save the text height of the typearea layout but remove 5%
+\standalonelayout% restore the standalone layout
+
+% draw a red rectangle aligned with the upper left corner of the TikZ picture
+% to show the size of the text area in the KOMA document:
+% \tikzset{
+%   every picture/.append style={
+%     execute at end picture={%
+%       \draw[red](current bounding box.north west)
+%         rectangle
+%         ++(\the\textwidth,-\savedtextheight);%
+% }}}
+
+\usetikzlibrary{bayesnet,
+        positioning,
+        fit,
+        arrows,
+        arrows.meta,
+        intersections,
+        decorations,
+        backgrounds,
+        calc,
+        math,
+        through,
+        shapes,
+        shadows
+}
+%% all heights and widths should be a % of paperheight, here 20% of 20cm is 4cm
+%% the x and y scales should be close and proportional to the depth of the tree
+%% here we have 3 layers,
+%% add the number of factors aswell: 2 factors, so the y base is divided by (3 + 2) + 1
+%% 0.1 / 5 = 0.02 & 0.1 / 6 = 0.016
+\definecolor{purpleLatent}{rgb}{150,2,214}
+\begin{document}
+%% 0.05 / 4 = 0.0125 & 0.05 / 5 = 0.01
+\begin{tikzpicture}
+  [
+    arrows={-Computer Modern Rightarrow[round]},
+    align=center,
+    x=0.0125\savedtextwidth,
+    y=0.01\savedtextheight,
+  ]
+\newcommand{\fitText}[1]{\resizebox{!}{0.08\savedtextwidth}{#1}} %% this should also be a percentage of total
+\newcommand{\fitTextLarger}[1]{\resizebox{!}{0.1\savedtextwidth}{#1}}
+%% 1cm = 28.34 pt ==> 5% is 56.6 pt
+
+\newcommand{\customFactorEdge}[4][]{ %
+  % Connect all nodes #2 to all nodes #4 via all factors #3.
+  \foreach \f in {#3} { %
+    \foreach \x in {#2} { %
+      %% unit is pt so divide by 28.34 to get cm and then multiply by 0.05 to get 5% of 20cm 
+      \path[
+        draw={rgb,255: red, 210; green, 29; blue, 242},
+        fill={rgb,255: red, 210; green, 29; blue, 242}, 
+        line width=5.5pt
+        ] (\x) edge[-,#1] (\f) ; %
+      %\draw[-,#1] (\x) edge[-] (\f) ; %
+    } ;
+    \foreach \y in {#4} { %
+      \path[
+        draw={rgb,255: red, 210; green, 29; blue, 242},
+        fill={rgb,255: red, 210; green, 29; blue, 242}, 
+        line width=5.5pt,
+        ] (\f) edge[->, #1] (\y) ; %
+      %\draw[->,#1] (\f) -- (\y) ; %
+    } ;
+  } ;
+}
+
+% \factor [options] {name} {caption} {inputs} {outputs}
+\newcommand{\customFactor}[5][]{ %
+  % Draw the factor node. Use alias to allow empty names.
+  
+  \node[factor, style={fill={rgb,255: red, 150; green, 2; blue, 214}, thick}, label={[name=#2-caption]#3}, name=#2, #1,
+  alias=#2-alias] {} ; %
+  % Connect all inputs to outputs via this factor
+  \customFactorEdge {#4} {#2-alias} {#5} ; %
+}
+
+\newcommand{\customLatentNode}[1]{\node[latent, #1, style={fill={rgb,255: red, 150; green, 2; blue, 214} ,draw=none,text=white }]}
+\newcommand{\customObservNode}[1]{\node[obs, #1, style={fill={rgb,255: red, 115; green, 31; blue, 148} , draw={rgb,255: red, 210; green, 29; blue, 242}, very thick, text=white}]}
+\newcommand{\customConstNode}[1]{\node[const, #1, draw={rgb,255: red, 150; green, 2; blue, 214}, inner sep = 5mm, line width = 5.5pt]}
+  %% here we refer to global size, 20cm x 20cm
+  \customObservNode{anchor=south} (X)      {\fitTextLarger{$\vec{x}$}} ; %
+  \customLatentNode{above=of X}    (z2)      {\fitText{$z_2$}} ; %
+  \customLatentNode{left=of z2}    (z1)      {\fitText{$z_1$}} ; %
+  \customLatentNode{right=of z2}    (z3)  {\fitText{$z_3$}}; %
+  % More nodes
+  \node[const, above=of z1]  (ph1) {}; %
+  \node[const, above=of z2]  (ph2) {}; %
+  \node[const, above=of z3]  (ph3) {}; %
+  \customConstNode{left=of ph1}  (phi1) {\fitText{$\phi_1$}}; %
+  \customConstNode{right=of phi1}  (psi1) {\fitText{$\psi_1$}}; %
+  \customConstNode{right=of psi1}  (phi2) {\fitText{$\phi_2$}}; %
+  \customConstNode{right=of phi2}  (psi2) {\fitText{$\psi_2$}}; %
+  \customConstNode{right=of ph3}  (phi3) {\fitText{$\phi_3$}}; %
+  \customConstNode{right=of phi3}  (psi3) {\fitText{$\psi_3$}}; %
+
+  % Factors
+  \customFactor[above=of z1]     {z1-f}     {left:\fitTextLarger{$Q_1$}} {} {} ; %
+  \customFactor[above=of z2]    {z2-f}     {left:\fitTextLarger{$Q_2$}} {} {} ; %
+  \customFactor[above=of z3]     {z3-f}     {left:\fitTextLarger{$Q_3$}} {} {} ; %
+
+  
+
+  \customFactor[above=of X] {X-f} {left:\fitTextLarger{P}} {} {};
+    
+  \customFactorEdge {z1}    {X-f}     {X} ;
+  \customFactorEdge {z2}    {X-f}     {X} ;
+  \customFactorEdge {z3}    {X-f}     {X} ;
+  \customFactorEdge {phi1}    {z1-f}     {z1} ;
+  \customFactorEdge {psi1}    {z1-f}     {z1} ;
+  \customFactorEdge {phi2}    {z2-f}     {z2} ;
+  \customFactorEdge {psi2}    {z2-f}     {z2} ;
+  \customFactorEdge {phi3}    {z3-f}     {z3} ;
+  \customFactorEdge {psi3}    {z3-f}     {z3} ;
+  % \factoredge {phi}    {X-f}     {X} ; %
+
+  % \gate {X-gate} {(X-f)(X-f-caption)} {T}
+
+  % \plate {plate1} { %
+  %   (X)(X-f)
+  %   (z1)(z3)
+  % } {$N$}; %
+  % \plate {pz} { %
+  %   (z1-f)(z3-f) %
+  %   (z1)(z3) %
+  % } {$N$} ; %
+  % \plate {} { %
+  %   (phi)(phi-f)(phi-f-caption) %
+  % } {$\forall t \in \mathcal{T}$} ; %
+
+\end{tikzpicture}
+\end{document}
